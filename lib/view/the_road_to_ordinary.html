@@ -1,0 +1,22 @@
+<script charset="utf-8">
+  document.addEventListener("WeixinJSBridgeReady", function() {
+    WeixinJSBridge && (WeixinJSBridge.on("menu:share:appmessage", function() {
+      WeixinJSBridge.invoke("sendAppMessage", {
+        img_url: "http://imgcache.qq.com/music/photo/album_300/36/300_albumpic_644836_0.jpg",
+        link: "http://www.javapk.net/demo/tools/player/",
+        desc: "《平凡之路》由朴树、韩寒完成, 歌曲能让听者享受平静和青春的感觉，及在伤感和迷茫中找到未来的方向。",
+        title: '一首歌广播, 各位晚安.'
+      }, function(r) {
+
+      })
+    }), WeixinJSBridge.on("menu:share:timeline", function() {
+      WeixinJSBridge.invoke("shareTimeline", {
+        img_width: "256",
+        img_height: "256",
+        img_url: "http://imgcache.qq.com/music/photo/album_300/36/300_albumpic_644836_0.jpg",
+        link: "http://www.javapk.net/demo/tools/player/",
+        title: '《平凡之路》由朴树、韩寒完成, 歌曲能让听者享受平静和青春的感觉，及在伤感和迷茫中找到未来的方向。'
+      }, function(r) {})
+    }))
+  }, false)
+</script>

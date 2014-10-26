@@ -8,7 +8,9 @@
     <link rel="stylesheet" href="index.css" media="screen" title="no title" charset="utf-8">
   </head>
   <body>
-    <audio id='audio' class='audio' src='http://thirdparty.gtimg.com/C100002G0sJY2wThyx.m4a?fromtag=38' autoplay1 preload='metadata' >
+    <!-- <audio id='audio' class='audio' src='http://thirdparty.gtimg.com/C100002G0sJY2wThyx.m4a?fromtag=38' autoplay1 preload='metadata' > -->
+    <!-- <audio id='audio' class='audio' src='http://ws.stream.qqmusic.qq.com/7060463.m4a?fromtag=30' autoplay1 preload='metadata'> -->
+    <audio id='audio' class='audio' src='http://ws.stream.qqmusic.qq.com/7072290.m4a?fromtag=30' autoplay1 preload='metadata'>
       您的浏览器不支持 audio
     </audio>
 
@@ -24,49 +26,15 @@
         <button name="btn_play" id='btn_play' class='btn-center hide btn-play'></button>
       <!-- </div> -->
     </div>
+    <div id='lrcwrap' class='lrcwrap'>
+      <div id='lrcbox' class='lrcbox'>
+      </div>
     </div>
-
+    </div>
   <script charset="utf-8" src='http://cdn.bootcss.com/zepto/0.8/zepto.min.js'></script>
-  <script charset="utf-8">
-    var audio = document.getElementById('audio')
-      , avator = document.getElementById('avator');
-    var $audio = $('#audio')
-      , $avator = $('#avator')
-      ;
-    $('#btn_play').tap(function(){
-      var $this = $(this);
-      if(this.className.indexOf('play')>=0) {
-        this.className = 'btn-center btn-pause';
-        $avator.addClass('animate').removeClass('animate-pause');
-        audio.play();
-      } else {
-        this.className = 'btn-center btn-play';
-        $avator.addClass('animate-pause').removeClass('anaimate');
-        audio.pause();
-      }
-    })
-
-  document.addEventListener("WeixinJSBridgeReady", function() {
-    WeixinJSBridge && (WeixinJSBridge.on("menu:share:appmessage", function() {
-      WeixinJSBridge.invoke("sendAppMessage", {
-        img_url: "http://imgcache.qq.com/music/photo/album_300/46/300_albumpic_654246_0.jpg",
-        link: "http://www.javapk.net/demo/tools/player/",
-        desc: "《喜欢你》由黄家驹作词、作曲于1988年. 这是邓紫棋2014年翻唱版本",
-        title: '每晚歌曲推荐, 各位晚安.'
-      }, function(r) {
-
-      })
-    }), WeixinJSBridge.on("menu:share:timeline", function() {
-      WeixinJSBridge.invoke("shareTimeline", {
-        img_width: "256",
-        img_height: "256",
-        img_url: "http://imgcache.qq.com/music/photo/album_300/46/300_albumpic_654246_0.jpg",
-        link: "http://www.javapk.net/demo/tools/player/",
-        title: '每晚歌曲推荐, 各位晚安.《喜欢你》由黄家驹作词、作曲于1988年. 这是邓紫棋2014年翻唱版本'
-      }, function(r) {})
-    }))
-  }, false)
-  </script>
+  <!-- // <script charset="utf-8" src='lrc.js'></script> -->
+  <script charset="utf-8" src='play.js'></script>
+  <ejs>include the_road_to_ordinary.html</ejs>
   <ejs>include template.html</ejs>
   </body>
 </html>
