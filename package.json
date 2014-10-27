@@ -11,7 +11,7 @@
       , "uglify-js": "^2.4.15"
       , "koa-static": "^1.4.6"
       , "koa-logger": "^1.2.1"
-      , "lrc": "^0.1.0"
+      , "autoprefixer-stylus": "^0.3.1"
       , "node-dev": "^2.6.0"
   }
   , "engines": {
