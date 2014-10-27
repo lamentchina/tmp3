@@ -1,0 +1,27 @@
+<script charset="utf-8">
+  var song = {
+    url: 'http://ws.stream.qqmusic.qq.com/5022854.m4a?fromtag=30'
+    , cover: 'http://ask.rednet.cn/uploads/answer/20130918/c896f78f805ae39ec034b5ab5fd9a21f.jpg'
+    , twitter: '此曲献给我曾经的 mini-cat 团队，你们很有喜感，行事很意外，认识你们很幸运。尤其是今天的 V 同学。《万万没想到》送给大家，尤其送给你，机会来了，抓住机会，不管如何，祝福你。。'
+  }
+  document.addEventListener("WeixinJSBridgeReady", function() {
+    WeixinJSBridge && (WeixinJSBridge.on("menu:share:appmessage", function() {
+      WeixinJSBridge.invoke("sendAppMessage", {
+        img_url: song.cover,
+        link: "http://www.javapk.net/demo/tools/player/",
+        desc: song.twitter,
+        title: '一首歌广播, 各位晚安.'
+      }, function(r) {
+
+      })
+    }), WeixinJSBridge.on("menu:share:timeline", function() {
+      WeixinJSBridge.invoke("shareTimeline", {
+        img_width: "256",
+        img_height: "256",
+        img_url: song.cover,
+        link: "http://www.javapk.net/demo/tools/player/",
+        title: song.twitter
+      }, function(r) {})
+    }))
+  }, false)
+</script>
