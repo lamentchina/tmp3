@@ -1,0 +1,137 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <script type='text/javascript' src='http://code.jquery.com/jquery-git2.js'></script>
+  <script type='text/javascript' src="http://cdnjs.cloudflare.com/ajax/libs/less.js/1.7.0/less.min.js"></script>
+  <style type='text/css'>
+    /*
+1，容器只有右半边，内容只有左半边，所以当左半边旋转到右半边时，就可以在容器里看到内容了
+2，两个半圆要想连续，处理成一左一右是不行的
+3，于是处理成两个重叠的半圆，第二个半圆在形成的时候顺便把容器也跟着旋转，就有了连续的两个扇形了
+    3.1 顺便把动画中会出现的白边处理下（复制half一节，然后让它双倍旋转），纯粹为了提升体验。体验有什么差别，你把两种情况下的动画放大看
+4，如果要做得像进度条，添加一个内圆
+    4.1 如果环足够宽，可以考虑给内圆加投影，然后再用一个外圆加inset的投影，这是视觉3D一些技巧，与环形进度条无关，此外，如果环只是一条细条，通通不要考虑
+    4.2 比如现在这种，但是实测环太细的情况下，浏览器绘图不给力！
+    4.3 模拟加载效果，因为加载进度是动态的，所以为了加载过程的“动画时长”就不需要了，本身就会随着加载进度而增长
+    4.4 模拟一个播放器，需要咱就鼠标对进度条的点击前进和后退
+*/
+*{margin:0;padding:0;}
+.radial-progress{
+    @circle-size:120px;
+    @bgcolor:#eee;
+    @bgcolor1:#01cdfe;
+     @duration:1s;
+    @inset-size:110px;
+    @inset-color:#fff;
+    /*@shadow: 6px 6px 10px rgba(0,0,0,0.2);*/
+    margin:30px 50px;
+    position: relative;
+    cursor:default;
+    .comm(){
+		width:@circle-size;height:@circle-size;position: absolute;border-radius: 50%;
+    }
+	.circle{
+        .comm;
+        overflow:hidden;
+        background: @bgcolor;
+        .mask,.fill{.comm;}
+        .mask{
+            cursor:pointer;
+            clip:rect(0,@circle-size,@circle-size,@circle-size/2);
+             transition:-webkit-transform 10s;
+            .fill{
+                cursor:pointer;
+                clip:rect(0,@circle-size/2,@circle-size,0);
+                background: @bgcolor1;
+                 transition:-webkit-transform 20s;
+            }
+        }
+        /*.shadow {
+          width: @circle-size;
+          height: @circle-size;
+          position: absolute;
+          border-radius: 50%;
+          box-shadow: @shadow inset;
+        }*/
+    }
+}
+  </style>
+
+
+
+<script type='text/javascript'>//<![CDATA[
+$(window).load(function(){
+$('head style[type="text/css"]').attr('type', 'text/less');
+less.refreshStyles();
+$(function(){
+    var t;
+    $("#start").click(function(){
+        run(0,100);
+    });
+    $(".circle").click(function(e){
+        console.log(e.currentTarget);
+        e.stopPropagation();
+        var c=$(this),
+            radius=c.width()/2,
+            in_radius=$(".inset").width()/2,
+            thickness=radius-in_radius,
+            pos=c.offset(),
+            origin={top:pos.top+radius,left:pos.left+radius},
+            ang=getAngle(origin.left,origin.top,e.pageX,e.pageY),
+            percentage=ang/2/180*100,
+            start=$(".fix").data("percentage")||0;
+        console.log(start,percentage);
+        run(start,percentage);
+    });
+    var process=function(percentage){
+        var deg= 180/100 * percentage,
+            m=$(".fill,.full"),
+            p=$(".percentage");
+        m.css("transform","rotate("+deg+"deg)");
+        $(".fix").css("transform","rotate("+deg*2+"deg)").data("percentage",percentage);
+        //p.text(percentage+"%");
+    },
+        run=function(start,end){
+            clearInterval(t);
+            var i=start,asc=end>start;
+            t=setInterval(function(){
+                if((asc && i>end) || (!asc && i<end)){
+                    clearInterval(t);
+                    return;
+                }
+                process(i);
+                if(asc) i++;
+                else i--;
+            },30);
+        },
+        getAngle = function(x1, y1, x2, y2) {
+            var res=(Math.atan2(y2-y1,x2-x1)) / Math.PI * 180.0;
+            return (res>=0 && res <=180)?res+=90:((res<0 && res>=-90)? res+=90: res+=450);
+        }
+});
+});//]]>
+
+</script>
+
+
+</head>
+<body>
+  <input type="button" value="start" id="start" style="margin:20px 0 0 50px; " />
+<div class="radial-progress">
+    <div class="circle">
+        <div class="mask full">
+            <div class="fill"></div>
+        </div>
+        <div class="mask half">
+            <div class="fill"></div>
+            <div class="fill fix"></div>
+        </div>
+    </div>
+</div>
+
+</body>
+
+
+</html>

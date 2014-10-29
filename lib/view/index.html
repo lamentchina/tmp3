@@ -12,7 +12,9 @@
     <!-- <audio id='audio' class='audio' src='http://ws.stream.qqmusic.qq.com/7060463.m4a?fromtag=30' autoplay1 preload='metadata'> -->
     <!-- <audio id='audio' class='audio' src='http://ws.stream.qqmusic.qq.com/7072290.m4a?fromtag=30' autoplay1 preload='metadata'> -->
     <!-- <audio id='audio' class='audio' src='http://ws.stream.qqmusic.qq.com/5022854.m4a?fromtag=30'  preload='metadata'> -->
-    <audio id='audio' class='audio' src='http://ws.stream.qqmusic.qq.com/679329.m4a?fromtag=30'  preload='metadata'>
+    <!-- <audio id='audio' class='audio' src='http://ws.stream.qqmusic.qq.com/679329.m4a?fromtag=30'  preload='metadata'> -->
+    <audio id='audio' class='audio' src='http://ws.stream.qqmusic.qq.com/459219.m4a?fromtag=30' preload='metadata'>
+    <!-- <audio id='audio' class='audio' src='1.m4a' prelaod='metadata'> -->
       您的浏览器不支持 audio
     </audio>
 
@@ -21,23 +23,33 @@
     <div id='bg' class='bg'>
     </div>
     <div id='container' class='container'>
-    <div id='cd' class='cd'>
-      <div id='avator' class='avator'>
-        <div id='circle' class=circle>
+      <div id='cd' class='cd'>
+        <div class="process">
+          <div class="mask full">
+              <div class="fill"></div>
+          </div>
+          <div class="mask half">
+              <div class="fill"></div>
+              <div class="fill fix"></div>
+          </div>
+          <div class="shadow"></div>
         </div>
-      </div>
-      <!-- <div id='circle_inner' class='circle-inner'> -->
-        <button name="btn_play" id='btn_play' class='btn-center hide btn-play'></button>
-      <!-- </div> -->
+        <div id='avator' class='avator'>
+          <div id='circle' class=circle>
+          </div>
+        </div>
+        <!-- <div id='circle_inner' class='circle-inner'> -->
+          <button name="btn_play" id='btn_play' class='btn-center hide btn-play'></button>
+        <!-- </div> -->
 
-    </div>
-    <div id='lrcwrap' class='lrcwrap'>
-      <div id='lrcscroll' class='lrcscroll'>
-        <div id='lrcbox' class='lrcbox'></div>
       </div>
-      <div id='twitter' class='twitter'>今天是个大喜的日子，jerry 同学就职， july 同学生日。而且，晚上大家还吼嗨森的张江镇聚餐。奇怪的是居然有了离别的味道。
-        我们虽已不年轻，好在大家又开始了新的启程，正如水木年华歌曲里唱得那样，“…等到相遇的时刻，让我们再唱这首歌，就像我们从未曾离别过…” （很抱歉，没有调试好进度条，今天不上线新功能） @Tom.Zhang</div>
-    </div>
+      <div id='lrcwrap' class='lrcwrap'>
+        <div id='lrcscroll' class='lrcscroll'>
+          <div id='lrcbox' class='lrcbox'></div>
+        </div>
+        <div id='twitter' class='twitter'>今天是个大喜的日子，jerry 同学就职， july 同学生日。而且，晚上大家还吼嗨森的张江镇聚餐。奇怪的是居然有了离别的味道。
+          我们虽已不年轻，好在大家又开始了新的启程，正如水木年华歌曲里唱得那样，“…等到相遇的时刻，让我们再唱这首歌，就像我们从未曾离别过…” （很抱歉，没有调试好进度条，今天不上线新功能） @Tom.Zhang</div>
+      </div>
     </div>
 
   <script charset="utf-8" src='zepto.min.js'></script>

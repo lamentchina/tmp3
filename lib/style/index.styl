@@ -8,6 +8,7 @@
   // background url('http://imgcache.qq.com/music/photo/album_300/46/300_albumpic_654246_0.jpg') no-repeat center center
   // background url('https://raw.githubusercontent.com/lamentchina/tmp3/master/public/cover/141027.png') no-repeat center center
   background url('https://raw.githubusercontent.com/lamentchina/tmp3/master/public/cover/141028.jpg') no-repeat center center
+  background url('http://imgcache.qq.com/music/photo/album/92/90_albumpic_37392_0.jpg') no-repeat center
   -webkit-filter blur(50px)
   background-size cover
   height 100%
@@ -20,19 +21,42 @@
   // perspective 800px
   position relative
   .cd
+    margin 50px auto
+    position relative
     height 200px
     width 200px
     border-radius 50%
-    margin 50px auto
-    position relative
+    .process
+      height 204px
+      width 204px
+      position absolute
+      top -2px
+      left -2px
+      border-radius 50%
+      .fill
+      .mask
+        width: 204px;
+        height: 204px;
+        position: absolute;
+        border-radius: 50%;
+      .mask
+        cursor: pointer;
+        clip: rect(0, 204px, 204px, 102px);
+        transition: transform 10s
+        .fill
+          cursor: pointer;
+          clip: rect(0, 102px, 204px, 0);
+          background: #01cdfe;
+          transition: transform 10s;
     .animate
-      animation rotate 8s linear infinite
+      // animation rotate 8s linear infinite
     .animate-pause
       animation-play-state paused
     .avator
       // background url('http://imgcache.qq.com/music/photo/album_300/46/300_albumpic_654246_0.jpg') no-repeat
       // background url('https://raw.githubusercontent.com/lamentchina/tmp3/master/public/cover/141027.png') no-repeat
       background url('https://raw.githubusercontent.com/lamentchina/tmp3/master/public/cover/141028.jpg') no-repeat
+      background url('http://imgcache.qq.com/music/photo/album/92/90_albumpic_37392_0.jpg') no-repeat
       background-size cover
       height 200px
       width 200px
