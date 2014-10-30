@@ -1,0 +1,27 @@
+<script charset="utf-8">
+   var song = {
+    url: 'http://ws.stream.qqmusic.qq.com/459219.m4a?fromtag=30'
+    , cover: 'http://imgcache.qq.com/music/photo/album/92/90_albumpic_37392_0.jpg'
+    , twitter: '一人伤怀，两人内疚，三个人之间的游走…《三人游》这首歌曲传达的就是这样一个故事。 即使明知结局，为何这么快就宣告答案，告知列车到站了，无关人等，请立即下车，——直到这时我们才理解一个人的伤城。噢，是的，你没有准备好，没有准备好原来要下车的正是自己。（没有做好进度条，就多瞎掰下吧） @Tom.Zhang'
+  }
+  document.addEventListener("WeixinJSBridgeReady", function() {
+    WeixinJSBridge && (WeixinJSBridge.on("menu:share:appmessage", function() {
+      WeixinJSBridge.invoke("sendAppMessage", {
+        img_url: song.cover,
+        link: "http://www.javapk.net/demo/tools/player/",
+        desc: song.twitter,
+        title: '一首歌广播, 各位晚安.'
+      }, function(r) {
+
+      })
+    }), WeixinJSBridge.on("menu:share:timeline", function() {
+      WeixinJSBridge.invoke("shareTimeline", {
+        img_width: "256",
+        img_height: "256",
+        img_url: song.cover,
+        link: "http://www.javapk.net/demo/tools/player/",
+        title: song.twitter
+      }, function(r) {})
+    }))
+  }, false)
+</script>
