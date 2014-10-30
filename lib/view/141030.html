@@ -1,6 +1,7 @@
 <script charset="utf-8">
    var song = {
     url: 'http://ws.stream.qqmusic.qq.com/678236.m4a?fromtag=30'
+    , link: "http://www.javapk.net/demo/tools/player/"
     , cover: 'https://raw.githubusercontent.com/lamentchina/tmp3/master/public/cover/141030.png'
     , twitter: '\"I\'m proud to be gay, and I consider being gay among the greatest gifts God has given me\", said Cook. 今晚将这首歌送给库克。 @Tom.Zhang'
   }
@@ -16,11 +17,13 @@
       })
     }), WeixinJSBridge.on("menu:share:timeline", function() {
       WeixinJSBridge.invoke("shareTimeline", {
-        img_width: "256",
-        img_height: "256",
-        img_url: song.cover,
-        link: "http://www.javapk.net/demo/tools/player/",
-        title: song.twitter
+        "img_url":song.cover,
+        "link":song.link,
+        "desc":'一分钟广播，各位晚安',
+        "title":song.twitter, // 注意这里要分享出去的内容是desc
+        img_width: "120",
+        img_height: "120"
+
       }, function(r) {})
     }))
   }, false)
