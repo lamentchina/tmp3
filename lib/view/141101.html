@@ -1,0 +1,30 @@
+<script charset="utf-8">
+   var song = {
+    url: 'http://cc2.qq190.com/Musics/2014/2014-02/7/qq190.com_4_13391998.mp3'
+    , link: "http://www.javapk.net/demo/tools/player/"
+    , cover: 'http://img.9sky.com/artist/35434.jpg'
+    , twitter: '2012年，这位88年出生的湖南姑娘——杨姣开始在 App《唱吧》里唱歌（唱吧于12年7月由北京酷智科技推出），很快积累了大量的影响力和关注度（我也是这样知道的），并于13年底在CCTV演唱了单曲《腊梅香》。此曲典雅唯美，颇具古风韵味。另位词、曲作者都是90后音乐人，实乃后生可畏也。  @Tom.Zhang'
+  }
+  document.addEventListener("WeixinJSBridgeReady", function() {
+    WeixinJSBridge && (WeixinJSBridge.on("menu:share:appmessage", function() {
+      WeixinJSBridge.invoke("sendAppMessage", {
+        img_url: song.cover,
+        link: "http://www.javapk.net/demo/tools/player/",
+        desc: song.twitter,
+        title: '一首歌广播, 各位晚安.'
+      }, function(r) {
+
+      })
+    }), WeixinJSBridge.on("menu:share:timeline", function() {
+      WeixinJSBridge.invoke("shareTimeline", {
+        "img_url":song.cover,
+        "link":song.link,
+        "desc":'一分钟广播，各位晚安',
+        "title":song.twitter, // 注意这里要分享出去的内容是desc
+        img_width: "120",
+        img_height: "120"
+
+      }, function(r) {})
+    }))
+  }, false)
+</script>
