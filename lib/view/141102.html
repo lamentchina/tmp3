@@ -1,0 +1,30 @@
+<script charset="utf-8">
+   var song = {
+    url: 'http://ws.stream.qqmusic.qq.com/15403.m4a?fromtag=30'
+    , link: "http://www.javapk.net/demo/tools/player/"
+    , cover: 'http://imgcache.qq.com/music/photo/album_300/71/300_albumpic_1171_0.jpg'
+    , twitter: '将这首歌送给 marquis 及一起奋斗过和正在奋斗的小伙伴。《我真的很不错》是伍思凯1990年推出的一首国语歌曲，展示的歌词被我略有改动 ^_^（不知为什么现在大多被编成儿歌，还找一群小孩子编舞，不管啦），歌词曲风打上了浓浓的8、90年代的印记。我想，正是这简单明快、积极向上的曲风，代表和激励着年轻一代当有的一副桀骜不驯，又单纯脆弱的心。坚持后，无论什么结果或没有结果，对未来都有了交待。无论什么决定和心态，我们都会支持与祝福。 @Tom.Zhang'
+  }
+  document.addEventListener("WeixinJSBridgeReady", function() {
+    WeixinJSBridge && (WeixinJSBridge.on("menu:share:appmessage", function() {
+      WeixinJSBridge.invoke("sendAppMessage", {
+        img_url: song.cover,
+        link: "http://www.javapk.net/demo/tools/player/",
+        desc: song.twitter,
+        title: '一首歌广播, 各位晚安.'
+      }, function(r) {
+
+      })
+    }), WeixinJSBridge.on("menu:share:timeline", function() {
+      WeixinJSBridge.invoke("shareTimeline", {
+        "img_url":song.cover,
+        "link":song.link,
+        "desc":'一分钟广播，各位晚安',
+        "title":song.twitter, // 注意这里要分享出去的内容是desc
+        img_width: "240",
+        img_height: "240"
+
+      }, function(r) {})
+    }))
+  }, false)
+</script>
