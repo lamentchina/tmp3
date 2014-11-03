@@ -1,0 +1,30 @@
+<script charset="utf-8">
+   var song = {
+    url: 'http://ws.stream.qqmusic.qq.com/1702962.m4a?fromtag=30'
+    , link: "http://www.javapk.net/demo/tools/player/"
+    , cover: 'http://pic.yupoo.com/lamentchina_v/Ebfl7ck6/Cgs2e.jpg'
+    , twitter: '今天在外面时，听到小伙伴“清华学神”的惊呼，回到家里已经很晚了，还是查了些资料，简述如下。韩衍隽，清华大四学生，15门课程满分得主。中学时即为全国奥林匹克数学、物理大赛一等奖、二等奖得主。高考结束刚出考场即收到清华发来的保送录取通知书。全国大学生数学大赛（非数学类，他不是数学专业）第一名，美国大学交叉建模大赛全球特等奖。IEEE会士、斯坦福终身教授评价为：“（他的建模）意义如此深远，我们不得不整理成三篇论文发表到领域内的顶级期刊，并受到顶级组织和人士的积极反馈。衍隽远超至今我对斯坦福最优秀博士生的期望值，这是我对一个人最高的评价。”… 不复制了。反正看到这个我想到了一首歌， 即现在播放这首《 The warrior song 》。封面图片即这小子。不禁感慨，“人和猪的差别，怎么能这么大昵？”  @Tom.Zhang'
+  }
+  document.addEventListener("WeixinJSBridgeReady", function() {
+    WeixinJSBridge && (WeixinJSBridge.on("menu:share:appmessage", function() {
+      WeixinJSBridge.invoke("sendAppMessage", {
+        img_url: song.cover,
+        link: "http://www.javapk.net/demo/tools/player/",
+        desc: song.twitter,
+        title: '一首歌广播, 各位晚安.'
+      }, function(r) {
+
+      })
+    }), WeixinJSBridge.on("menu:share:timeline", function() {
+      WeixinJSBridge.invoke("shareTimeline", {
+        "img_url":song.cover,
+        "link":song.link,
+        "desc":'一分钟广播，各位晚安',
+        "title":song.twitter, // 注意这里要分享出去的内容是desc
+        img_width: "240",
+        img_height: "240"
+
+      }, function(r) {})
+    }))
+  }, false)
+</script>
