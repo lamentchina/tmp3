@@ -1,0 +1,30 @@
+<script charset="utf-8">
+   var song = {
+    url: 'http://ws.stream.qqmusic.qq.com/613724.m4a?fromtag=30'
+    , link: "http://www.javapk.net/demo/tools/player/"
+    , cover: 'http://imgcache.qq.com/music/photo/album_300/56/300_albumpic_52356_0.jpg'
+    , twitter: '今天播放的这首《外面的世界》由莫文蔚翻唱版本，后来她谈起当初录音室录制这首歌的时候，刚带上耳机听到前奏，就已经泪如雨下，一次录制就完成了。不知大家知否，齐秦作这首歌的心境，是因为伤人入狱，在里面怀念外面的世界，外面，也有外面的真实与无奈… 多年以后，这首曲子传遍华语每一个角落，已成了年轻人抒发情怀与释放压力的不可替代的曲子。Alex 同学点了这首歌曲，也没写推荐辞，我只好代笔了。  @Tom.Zhang'
+  }
+  document.addEventListener("WeixinJSBridgeReady", function() {
+    WeixinJSBridge && (WeixinJSBridge.on("menu:share:appmessage", function() {
+      WeixinJSBridge.invoke("sendAppMessage", {
+        img_url: song.cover,
+        link: "http://www.javapk.net/demo/tools/player/",
+        desc: song.twitter,
+        title: '一首歌广播, 各位晚安.'
+      }, function(r) {
+
+      })
+    }), WeixinJSBridge.on("menu:share:timeline", function() {
+      WeixinJSBridge.invoke("shareTimeline", {
+        "img_url":song.cover,
+        "link":song.link,
+        "desc":'一分钟广播，各位晚安',
+        "title":song.twitter, // 注意这里要分享出去的内容是desc
+        img_width: "240",
+        img_height: "240"
+
+      }, function(r) {})
+    }))
+  }, false)
+</script>
