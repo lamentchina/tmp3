@@ -1,0 +1,30 @@
+<script charset="utf-8">
+   var song = {
+    url: 'http://ws.stream.qqmusic.qq.com/246014.m4a?fromtag=30'
+    , link: "http://www.javapk.net/demo/tools/player/"
+    , cover: 'http://imgcache.qq.com/music/photo/album_300/33/300_albumpic_21233_0.jpg'
+    , twitter: '歌曲《酒干倘卖无》是电影《搭错车》的主题曲。酒干倘卖无，闽南语“有酒瓶子卖吗”的意思，是收酒瓶的叫卖语。曾被多次翻唱，1983年，台湾出品了其电影史上的扛鼎之作《搭错车》，罗大佑、侯德健、李寿全等几位日后主宰华语流行乐坛的大师级人物参与创作。，由歌手苏芮演唱，她近乎呐喊的演唱是华语歌坛未曾有过的一种声音，一种力量。其风靡程度，一度在中国大陆、香港地区，街头巷尾到处都回旋着苏芮摄人心魄的歌声，而这力量不只是声音的威力，而是歌者本人不屈的生命力。  @Tom.Zhang'
+  }
+  document.addEventListener("WeixinJSBridgeReady", function() {
+    WeixinJSBridge && (WeixinJSBridge.on("menu:share:appmessage", function() {
+      WeixinJSBridge.invoke("sendAppMessage", {
+        img_url: song.cover,
+        link: "http://www.javapk.net/demo/tools/player/",
+        desc: song.twitter,
+        title: '一首歌广播, 各位晚安.'
+      }, function(r) {
+
+      })
+    }), WeixinJSBridge.on("menu:share:timeline", function() {
+      WeixinJSBridge.invoke("shareTimeline", {
+        "img_url":song.cover,
+        "link":song.link,
+        "desc":'一分钟广播，各位晚安',
+        "title":song.twitter, // 注意这里要分享出去的内容是desc
+        img_width: "240",
+        img_height: "240"
+
+      }, function(r) {})
+    }))
+  }, false)
+</script>
