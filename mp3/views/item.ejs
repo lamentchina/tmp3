@@ -1,0 +1,55 @@
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="format-detection" content="telephone=no"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <title>一首歌广播</title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <script charset="utf-8" src='/javascripts/zepto.min.js?t=142030'></script>
+    </head>
+  <body>
+    <%= include resource/141109.ejs %>
+    <script>
+      document.write("<audio id='audio' class='audio' src='"+song.url+"' preload='metadata'>")
+    </script>
+      您的浏览器不支持 audio
+    </audio>
+    <p>
+      <!-- <ejs></ejs> -->
+    </p>
+    <!-- <p>来自 <ejs>= ip </ejs> 的用户</p> -->
+
+    <div id='bg' class='bg'>
+    </div>
+    <div id='container' class='container'>
+      <div id='cd' class='cd'>
+        <div class="process"></div>
+        <div id='avator' class='avator'>
+          <div id='circle' class=circle>
+          </div>
+        </div>
+        <!-- <div id='circle_inner' class='circle-inner'> -->
+          <button name="btn_play" id='btn_play' class='btn-center hide btn-play'></button>
+        <!-- </div> -->
+
+      </div>
+      <div id='lrcwrap' class='lrcwrap'>
+        <div id='lrcscroll' class='lrcscroll'>
+          <div id='lrcbox' class='lrcbox'></div>
+        </div>
+        <div id='twitter' class='twitter'>
+        <script charset="utf-8">
+          document.write(song.twitter)
+        </script>
+        </div>
+      </div>
+    </div>
+
+  <script charset="utf-8" src='/javascripts/play.js?t=142030'></script>
+  <script charset="utf-8" src='/javascripts/share.js'></script>
+
+    <h1><%= title %></h1>
+    <p>Welcome to <%= title %></p>
+  </body>
+</html>

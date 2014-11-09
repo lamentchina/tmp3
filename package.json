@@ -4,13 +4,10 @@
   , "main": "app.js"
   , "version": "0.0.1"
   , "dependencies": {
-      "koa-ejs": "^1.1.0"
-      , "koala": "^0.7.2"
-      , "koa-router": "^3.5.0"
+      "express": "^4.10.1"
+      , "express-generator": "^4.9.0"
       , "stylus": "^0.48.1"
       , "uglify-js": "^2.4.15"
-      , "koa-static": "^1.4.6"
-      , "koa-logger": "^1.2.1"
       , "autoprefixer-stylus": "^0.3.1"
       , "node-dev": "^2.6.0"
   }
