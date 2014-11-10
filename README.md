@@ -20,3 +20,4 @@ stylus -u autoprefixer-stylus lib/style/ -o /Users/Tom/Sites/github/tmp3/public/
 ```shell
 uglifyjs lib/js/play.js -o /Users/Tom/Sites/github/tmp3/public/play.js -d
 ```
+###停止开发维护, 移至 FUCK BAE
